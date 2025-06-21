@@ -1,6 +1,6 @@
 [project]
 name = "alphavantage"
-version = "0.3.10"
+version = "0.3.11"
 description = "Alphavantage MCP server"
 readme = "README.md"
 requires-python = ">=3.12"
