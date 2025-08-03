@@ -26,11 +26,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/alphavantage_mcp_server"]
 
-[tool.hatch.build]
-include = [
-  "pyproject.toml"
-]
-
 [dependency-groups]
 dev = [
     "pytest>=8.4.1",
