@@ -5136,8 +5136,19 @@ async def handle_call_tool(
         raise ValueError(f"Error processing alphavantage query: {str(e)}") from e
 
 
+def find_pyproject():
+    from pathlib import Path
+    current = Path(__file__).resolve()
+    for parent in current.parents:
+        candidate = parent / "pyproject.toml"
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("pyproject.toml not found")
+
+
 def get_version():
-    with open("pyproject.toml", "r") as f:
+    pyproject_path = find_pyproject()
+    with open(pyproject_path, "r") as f:
         pyproject = toml.load(f)
         return pyproject["project"]["version"]
 
